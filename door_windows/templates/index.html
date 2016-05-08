@@ -4,22 +4,29 @@
 <head>
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-<title>珀明</title>
+<title>艺美窗业</title>
 <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
 <div class="box w_100">
-  <div class="top_box w_100"> <span class="fl_left"> <img src="{% static 'images/logo.png' %}" height="59" width="350"/></span><span class="fl_right zw"><a href="#">繁体中文</a><a href="#">English</a></span></div>
+  <div class="top_box w_100"> <span class="fl_left"> <img src="{% static 'images/logo.png' %}" height="59" width="350"/></span>
+    {% if user.is_authenticated %}
+        <span class="fl_right zw"><a href="{% url 'add_products' %}">发布新产品</a></span>
+    {% else %}
+        <span class="fl_right zw"><a href="#">繁体中文</a><a href="#">English</a></span>
+    {% endif %}
+  </div>
   <div class="top_01 w_100"></div>
 <div class="nv_box w_100">
 <ul>
-<li><a href="index.html" target="_parent">首页</a></li>
-<li ><a href="sub/About.html" target="_parent">关于珀明</a></li>
-<li><a href="sub/New.html" target="_parent">公司新闻</a></li>
-<li><a href="sub/Fwfw.html" target="_parent">服务范围</a></li>
-<li><a href="sub/Gongchenganli.html" target="_parent">工程案例</a></li>
-<li><a href="#">技术文摘</a></li><li><a href="sub/Contacts.html" target="_parent">联系我们</a></li>
+<li><a href="{% url 'index' %}" target="_parent">首页</a></li>
+<li><a href="{% url 'index' %}" target="_parent">关于艺美</a></li>
+<li><a href="{% url 'product_list' %}" target="_parent">产品展示</a></li>
+<li><a href="{% url 'index' %}" target="_parent">工程案例</a></li>
+<li><a href="{% url 'index' %}" target="_parent">新闻中心</a></li>
+<li><a href="#">在线留言</a></li>
+<li><a href="{% url 'contacts' %}" target="_parent">联系我们</a></li>
 </ul>
 
 {#<div class="mouse_box"><table width="410" border="0" cellspacing="0" cellpadding="0">#}

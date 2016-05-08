@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+    {% block content %}
+
+    <p>{{ product.title }}</p>
+    <p>{{ product.last_update_timestamp|date:"Y-m-d P" }}</p>
+    {% autoescape off %}
+    <p>{{ product.content }}</p>
+    {% endautoescape %}
+    {% endblock %}

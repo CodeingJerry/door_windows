@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block content %}
+  <tr>
+    <td valign="top" background="{% static 'images/about_img_02.png' %}">
+    <div class="coneten">
+      <table width="1014" border="0" cellspacing="0" cellpadding="0" style="margin-bottom:20px;">
+        <tr>
+          <td height="32" colspan="2" align="right">您现在的位置 &gt;&gt; 首页 &gt; 服务范围</td>
+        </tr>
+        <tr>
+          <td height="35" colspan="2" background="../images/index_img_10.gif"><div class="bq_title"><table width="148" border="0" cellpadding="0" cellspacing="0" background="../images/about_img_04.png">
+  <tr>
+    <td height="47" valign="bottom" class="write fw_title"><h2><strong>工程案例</strong></h2></td>
+  </tr>
+</table>
+</div></td>
+        </tr>
+        <tr>
+          <td width="225" valign="top" class="fl_bg"><table width="298" border="0" cellpadding="0" cellspacing="0" background="{% static 'images/index_img_08.gif' %}">
+            <tr>
+{#              <td height="165" valign="top">#}
+{#              <ul class="fl_lb">#}
+{#              <li><a href="#">合肥跳水馆 </a></li>#}
+{#              <li><a href="#">广东工大</a></li>#}
+{#              <li><a href="#">东海岸</a></li>#}
+{#              <li><a href="#">中山钟楼</a></li>#}
+{#              <li><a href="#">合肥防疫中心</a></li>#}
+{#              <li><a href="#">佰易穹顶</a></li>#}
+{#              <li><a href="#">中山钟楼</a></li>#}
+{#              <li><a href="#">中州中心</a></li>#}
+{#              <li><a href="#">中通化工办</a></li>#}
+{#              </ul>              </td>#}
+            </tr>
+          </table></td>
+          <td width="789" valign="top"><table width="789" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td valign="top"><table width="752" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top:25px;">
+                <tr>
+                  <td width="194" height="172" valign="top"><table width="170" border="0" cellspacing="0" cellpadding="0" class="pr_img">
+                  {% for product in products %}
+                      <div class="row">
+                          <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <a href="{% url "product_detail" product.id %}">
+                                    <img src="{{ product.avatar }}" alt="图像大小：192*200">
+                                </a>
+                              <div class="caption">
+                                <h4>{{ product.title }}</h4>
+                              {% if user.is_authenticated %}
+                                <p><a href="{% url "uploadavatar" product.id %}">更换产品图片</a> </p>
+                              {% endif %}
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                  {% endfor %}
+                  </table></td>
+                </tr>
+              </table></td>
+            </tr>
+          </table></td>
+        </tr>
+      </table>
+    </div>
+    <table width="1045" border="0" cellpadding="0" cellspacing="0" bgcolor="#dfe2e6" class="blue" style="margin-left:3px; margin-bottom:20px;">
+      <tr>
+        <td width="827" height="28" align="right" ></td>
+        <td width="218" align="right" class="bot"><a href="#">上一页</a>  <a style="background-color:#3f4c5d; width:15px; height:15px; text-align:center; color:#FFFFFF;">1</a>  <a href="#">2</a>  <a href="#">3</a>  <a href="#">下一页</a></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+  {% endblock %}
+{#              {% for product in products %}#}
+{#                  <div class="row">#}
+{#                      <div class="col-sm-6 col-md-4">#}
+{#                        <div class="thumbnail">#}
+{#                            <a href="{% url "uploadavatar" %}">#}
+{#                                <img src="{{ product.avatar }}" alt="图像大小：192*200">#}
+{#                            </a>#}
+{#                          <div class="caption">#}
+{#                            <h4>{{ product.title }}</h4>#}
+{#                            <p>{{ product.id }}</p>#}
+{#                          </div>#}
+{#                        </div>#}
+{#                      </div>#}
+{#                  </div>#}
+{#              {% endfor %}#}
+{#            <tr>#}
+{#              <td width="789" height="38" class="gc_bg gc_an"><a href="#">·2006年案例</a><a href="#">·2007年案例</a><a href="#">·2008年案例</a><a href="#">·2009年案例</a><a href="#">·2010年案例</a></td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#              <td valign="top"><table width="752" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top:25px;">#}
+{#                <tr>#}
+{#                  <td width="194" height="172" valign="top"><table width="170" border="0" cellspacing="0" cellpadding="0" class="pr_img">#}
+{#                    <tr>#}
+{#                      <td><img src="{% static 'images/pr_img_01.gif' %}" width="162" height="115" /></td>#}
+{#                    </tr>#}
+{#                    <tr>#}
+{#                      <td height="40" align="center">广东工业大学图书馆</td>#}
+{#                    </tr>#}
+{#                  </table></td>#}
+{#                  <td width="194" valign="top"><table width="170" border="0" cellspacing="0" cellpadding="0" class="pr_img">#}
+{#                    <tr>#}
+{#                      <td><img src="{% static 'images/pr_img_02.gif' %}" width="162" height="115" /></td>#}
+{#                    </tr>#}
+{#                    <tr>#}
+{#                      <td height="40" align="center">广东工业大学图书馆</td>#}
+{#                    </tr>#}
+{#                  </table></td>#}
+{#                  <td width="194" valign="top"><table width="170" border="0" cellspacing="0" cellpadding="0" class="pr_img">#}
+{#                    <tr>#}
+{#                      <td><img src="{% static 'images/pr_img_03.gif' %}" width="162" height="115" /></td>#}
+{#                    </tr>#}
+{#                    <tr>#}
+{#                      <td height="40" align="center">广东工业大学图书馆</td>#}
+{#                    </tr>#}
+{#                  </table></td>#}
+{#                  <td width="170" valign="top"><table width="170" border="0" cellspacing="0" cellpadding="0" class="pr_img">#}
+{#                    <tr>#}
+{#                      <td><img src="{% static 'images/pr_img_04.gif' %}" width="162" height="115" /></td>#}
+{#                    </tr>#}
+{#                    <tr>#}
+{#                      <td height="40" align="center">广东工业大学图书馆</td>#}
+{#                    </tr>#}
+{#                  </table></td>#}
+{#                </tr>#}
+{#                <tr>#}
+{#                  <td height="172" valign="top"><table width="170" border="0" cellspacing="0" cellpadding="0" class="pr_img">#}
+{#                    <tr>#}
+{#                      <td><img src="{% static 'images/pr_img_01.gif' %}" width="162" height="115" /></td>#}
+{#                    </tr>#}
+{#                    <tr>#}
+{#                      <td height="40" align="center">广东工业大学图书馆</td>#}
+{#                    </tr>#}
+{#                  </table></td>#}
+{#                  <td valign="top"><table width="170" border="0" cellspacing="0" cellpadding="0" class="pr_img">#}
+{#                    <tr>#}
+{#                      <td><img src="{% static 'images/pr_img_02.gif' %}" width="162" height="115" /></td>#}
+{#                    </tr>#}
+{#                    <tr>#}
+{#                      <td height="40" align="center">广东工业大学图书馆</td>#}
+{#                    </tr>#}
+{#                  </table></td>#}
+{#                  <td valign="top"><table width="170" border="0" cellspacing="0" cellpadding="0" class="pr_img">#}
+{#                    <tr>#}
+{#                      <td><img src="{% static 'images/pr_img_03.gif' %}" width="162" height="115" /></td>#}
+{#                    </tr>#}
+{#                    <tr>#}
+{#                      <td height="40" align="center">广东工业大学图书馆</td>#}
+{#                    </tr>#}
+{#                  </table></td>#}
+{#                  <td valign="top"><table width="170" border="0" cellspacing="0" cellpadding="0" class="pr_img">#}
+{#                    <tr>#}
+{#                      <td><img src="{% static 'images/pr_img_01.gif' %}" width="162" height="115" /></td>#}
+{#                    </tr>#}
+{#                    <tr>#}
+{#                      <td height="40" align="center">广东工业大学图书馆</td>#}
+{#                    </tr>#}
+{#                  </table></td>#}
+{#                </tr>#}
+{#                <tr>#}
+{#                  <td><table width="170" border="0" cellspacing="0" cellpadding="0" class="pr_img">#}
+{#                    <tr>#}
+{#                      <td><img src="{% static 'images/pr_img_01.gif' %}" width="162" height="115" /></td>#}
+{#                    </tr>#}
+{#                    <tr>#}
+{#                      <td height="40" align="center">广东工业大学图书馆</td>#}
+{#                    </tr>#}
+{#                  </table></td>#}
+{#                  <td><table width="170" border="0" cellspacing="0" cellpadding="0" class="pr_img">#}
+{#                    <tr>#}
+{#                      <td><img src="{% static 'images/pr_img_02.gif' %}" width="162" height="115" /></td>#}
+{#                    </tr>#}
+{#                    <tr>#}
+{#                      <td height="40" align="center">广东工业大学图书馆</td>#}
+{#                    </tr>#}
+{#                  </table></td>#}
+{#                  <td><table width="170" border="0" cellspacing="0" cellpadding="0" class="pr_img">#}
+{#                    <tr>#}
+{#                      <td><img src="{% static 'images/pr_img_01.gif' %}" width="162" height="115" /></td>#}
+{#                    </tr>#}
+{#                    <tr>#}
+{#                      <td height="40" align="center">广东工业大学图书馆</td>#}
+{#                    </tr>#}
+{#                  </table></td>#}
+{#                  <td><table width="170" border="0" cellspacing="0" cellpadding="0" class="pr_img">#}
+{#                    <tr>#}
+{#                      <td><img src="{% static 'images/pr_img_03.gif' %}" width="162" height="115" /></td>#}
+{#                    </tr>#}
+{#                    <tr>#}
+{#                      <td height="40" align="center">广东工业大学图书馆</td>#}
+{#                    </tr>#}
+{#                  </table></td>#}
+{#                </tr>#}
+{#              </table></td>#}
+{#            </tr>#}
+
+

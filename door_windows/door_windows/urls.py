@@ -16,9 +16,13 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from windows.views import index
+from windows.views import index,contacts
 
+admin.autodiscover()
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', index, name="index"),
+    url(r'^contacts/', contacts, name="contacts"),
+    url(r'^products/', include('products.urls')),
+    url(r'^ueditor/', include('DjangoUeditor.urls')),
 ]
